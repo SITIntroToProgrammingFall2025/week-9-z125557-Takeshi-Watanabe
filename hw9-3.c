@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int main(void){
 	double a[2][3],b[3][2],c[2][2],sum;
@@ -17,14 +18,24 @@ int main(void){
 	printf("The first matrix you entered is\n");
 	for(i = 0;i < 2;i++){
 		for(j = 0;j < 3;j++){
-			printf("%.1f ",a[i][j]);
+			if(a[i][j] - floor(a[i][j]) > 0.00000000001){
+				printf("%.1f ",a[i][j]);
+			}
+			else{
+				printf("%.0f ",a[i][j]);
+			}
 		}
 		printf("\n");
 	}
 	printf("The second matrix you entered is\n");
 	for(i = 0;i < 3;i++){
 		for(j = 0;j < 2;j++){
-			printf("%.1f ",b[i][j]);
+			if(b[i][j] - floor(b[i][j]) > 0.00000000001){
+				printf("%.1f ",b[i][j]);
+			}
+			else{
+				printf("%.0f ",b[i][j]);
+			}
 		}
 		printf("\n");
 	}
@@ -40,7 +51,12 @@ int main(void){
 	printf("The multiplication product of matrix A and matrix B:\n");
 		for(i = 0;i < 2;i++){
 			for(j = 0;j < 2;j++){
-				printf("%.1f ",c[i][j]);
+				if(c[i][j] - floor(c[i][j]) > 0.00000000001){
+					printf("%.1f ",c[i][j]);
+				}
+				else{
+					printf("%.0f ",c[i][j]);
+				}
 			}
 			printf("\n");
 		}
